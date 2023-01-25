@@ -1,6 +1,7 @@
 package io.github.rentaylor.alexandritemod;
 
 import com.mojang.logging.LogUtils;
+import io.github.rentaylor.alexandritemod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -30,6 +31,8 @@ public class AlexandriteMod {
     private static final Logger LOGGER = LogUtils.getLogger();
     public AlexandriteMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
