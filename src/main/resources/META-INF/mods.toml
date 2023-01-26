@@ -32,7 +32,7 @@ logoFile="alexandritemod.png" #optional
 description='''Adds an ore block and gemstone of Alexandrite into the game. Future versions will have light reactive decorative blocks.
 '''
 authors="\nRen, who loves Tuna Melts\n" #optional
-credits="\nThanks to Turty Wurty and Kaupenjoe for their tutorials\n" #optional
+credits="\nThanks to Turty Wurty for their tutorials\n" #optional
 # A text field displayed in the mod UI
 
 # Display Test controls the display for your mod in the server connection screen

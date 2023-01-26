@@ -1,6 +1,7 @@
 package io.github.rentaylor.alexandritemod;
 
 import com.mojang.logging.LogUtils;
+import io.github.rentaylor.alexandritemod.block.ModBlocks;
 import io.github.rentaylor.alexandritemod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
@@ -33,6 +34,7 @@ public class AlexandriteMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -47,9 +49,15 @@ public class AlexandriteMod {
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
     }
 
+    // Places items into appropriate Creative Mode tabs.
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if (event.getTab() == CreativeModeTabs.INGREDIENTS)
             event.accept(ModItems.ALEXANDRITE);
+
+        if (event.getTab() == CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(ModItems.ALEXANDRITE_ORE);
+        }
+
     }
 
 
