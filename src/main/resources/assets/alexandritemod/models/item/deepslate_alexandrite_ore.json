@@ -1,3 +1,6 @@
 {
-    "parent": "alexandritemod:block/deepslate_alexandrite_ore"
+    "parent": "alexandritemod:block/deepslate_alexandrite_ore",
+    "textures": {
+        "all": "alexandritemod:block/deepslate_alexandrite_ore"
+    }
 }

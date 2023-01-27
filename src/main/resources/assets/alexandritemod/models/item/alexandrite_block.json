@@ -1,3 +1,6 @@
 {
-    "parent": "alexandritemod:block/alexandrite_block"
+    "parent": "alexandritemod:block/alexandrite_block",
+    "textures": {
+        "all": "alexandritemod:block/alexandrite_block"
+    }
 }
