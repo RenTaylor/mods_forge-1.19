@@ -1,6 +1,7 @@
 {
   "item.alexandritemod.alexandrite": "Alexandrite",
-  "block.alexandritemod.alexandrite_block": "Alexandrite Block",
+
+  "block.alexandritemod.alexandrite_block": "Block of Alexandrite",
   "block.alexandritemod.alexandrite_ore": "Alexandrite Ore",
-  "block.alexandritemod.deepslate_alexandrite_block": "Deepslate Alexandrite Block"
+  "block.alexandritemod.deepslate_alexandrite_ore": "Deepslate Alexandrite Ore"
 }

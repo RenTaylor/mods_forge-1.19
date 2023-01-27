@@ -31,16 +31,18 @@ public class AlexandriteMod {
     public static final String MODID = "alexandritemod";
     private static final Logger LOGGER = LogUtils.getLogger();
     public AlexandriteMod() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.ITEMS.register(bus);
-        ModBlocks.BLOCKS.register(bus);
+        ModItems.ITEMS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
+
+        MinecraftForge.EVENT_BUS.register(this);
 
         // Register the commonSetup method for modloading
-        bus.addListener(this::commonSetup);
+        modEventBus.addListener(this::commonSetup);
 
         // Register the item to a creative tab
-        bus.addListener(this::addCreative);
+        modEventBus.addListener(this::addCreative);
     }
 
     // Places items into appropriate Creative Mode tabs.
