@@ -31,22 +31,16 @@ public class AlexandriteMod {
     public static final String MODID = "alexandritemod";
     private static final Logger LOGGER = LogUtils.getLogger();
     public AlexandriteMod() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        ModItems.ITEMS.register(bus);
+        ModBlocks.BLOCKS.register(bus);
 
         // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
+        bus.addListener(this::commonSetup);
 
         // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+        bus.addListener(this::addCreative);
     }
 
     // Places items into appropriate Creative Mode tabs.
@@ -56,9 +50,18 @@ public class AlexandriteMod {
 
         if (event.getTab() == CreativeModeTabs.BUILDING_BLOCKS){
             event.accept(ModItems.ALEXANDRITE_ORE);
+            event.accept(ModItems.DEEPSLATE_ALEXANDRITE_ORE);
+            event.accept(ModItems.ALEXANDRITE_BLOCK);
         }
 
     }
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        // Some common setup code
+        LOGGER.info("HELLO FROM COMMON SETUP");
+        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+    }
+
+
 
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
